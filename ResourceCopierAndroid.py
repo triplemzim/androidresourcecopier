@@ -236,7 +236,7 @@ def runMain(SRC):
 
 
 # a = "E:\\REVE\\AndroidProjects\\New folder\\gradlew\\bla.xml"
-a = input()
+a = input("Please enter the file path: ")
 global currentPath
 currentPath = os.getcwd()
 
