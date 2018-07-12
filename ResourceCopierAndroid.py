@@ -1,6 +1,7 @@
 import os
 import shutil
 from glob import glob
+import codecs
 
 
 def openFileAtGivenPathForWriting(path):
@@ -116,7 +117,7 @@ def openFileByNameExtension(name, extension, tempPath, savePath):
 				break
 			if(filename == targetFile):
 				try:
-					return open(dirname + "\\" + targetFile, "r")
+					return codecs.open(dirname + "\\" + targetFile,encoding = 'utf-8', mode = "r")
 				except:
 					print("File does not exists most probably")
 
@@ -136,7 +137,7 @@ def getResourceData(sourceFile, searckKeys):
 
 
 def printToFile(fileName, resData, savePath):
-	fileOutput = open(savePath + "\\" + fileName, "w+")
+	fileOutput = codecs.open(savePath + "\\" + fileName, encoding = 'utf-8', mode = "w+")
 	for st in resData:
 		fileOutput.write(st)
 		fileOutput.write('\n')
@@ -188,7 +189,7 @@ def getOtherRes(data,savePath):
 
 def runMain(SRC):
 
-	srcfile = open(SRC, 'r')
+	srcfile = codecs.open(SRC,encoding = 'utf-8', mode = 'r')
 
 	srcFileName = SRC.split('\\')[len(SRC.split('\\')) -1]
 
