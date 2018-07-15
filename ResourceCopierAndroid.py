@@ -153,9 +153,16 @@ def getOtherRes(data,savePath):
 	string = getResourceNameByTagName(data, "string", savePath)
 	print("Strings: " + str(string))
 
+
+	drawableFile = getResourceNameByTagName(data, "drawable", savePath)
+	print("Drawables: " + str(drawableFile))
+	for d in drawableFile:
+		findFile(d, currentPath, savePath)
+
 	colorFile = openFileByNameExtension("colors", "xml", currentPath, savePath)
 	# print(getResourceData(colorFile, color))
 	# colorFile.close()
+
 
 	dimenFile = openFileByNameExtension("dimens", "xml", currentPath, savePath)
 	# print(getResourceData(dimenFile, dimen))
