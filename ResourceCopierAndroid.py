@@ -27,23 +27,31 @@ def findFile(targetFile, tempPath, savePath):
 				try:
 					if "hdpi" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable-hdpi\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes + '\\drawable-hdpi\\')
 					elif "mdpi" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable-mdpi\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\drawable-mdpi\\')
 					elif "xhdpi" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable-xhdpi\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\drawable-xhdpi\\')
 					elif "xxhdpi" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable-xxhdpi\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\drawable-xxhdpi\\')
 					elif "xxxhdpi" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable-xxxhdpi\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\drawable-xxxhdpi\\')
 					elif "drawable" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\drawable\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\drawable\\')
 						if "xml" in filename:
 							runMain(dirname + '\\' + filename)
 					elif "layout" in dirname:
 						shutil.copy2(dirname + '\\' + filename, savePath+ '\\layout\\')
+						shutil.copy2(dirname + '\\' + filename, rootRes+ '\\layout\\')
 						runMain(dirname + '\\' + filename)
 					else:
 						shutil.copy2(dirname + '\\' + filename, savePath)
+						shutil.copy2(dirname + '\\' + filename, rootRes)
 						# runMain(dirname + '\\' + filename)
 					# shutil.copy2(dirname + '\\' + filename, savePath)
 				except:
@@ -138,10 +146,15 @@ def getResourceData(sourceFile, searckKeys):
 
 def printToFile(fileName, resData, savePath):
 	fileOutput = codecs.open(savePath + "\\" + fileName, encoding = 'utf-8', mode = "w+")
+	fileOutputRoot = codecs.open(zifta + "\\" + fileName, encoding = 'utf-8', mode = "a")
 	for st in resData:
 		fileOutput.write(st)
 		fileOutput.write('\n')
+		fileOutputRoot.write(st)
+		fileOutputRoot.write('\n')
+
 	fileOutput.close()
+	fileOutputRoot.close()
 
 def getOtherRes(data,savePath):
 	color = getResourceNameByTagName(data, "color", savePath)
@@ -203,12 +216,15 @@ def runMain(SRC):
 	print("Source file: " + srcFileName)
 
 	savePath = currentPath + '\\ziftaRes\\' + srcFileName 
+
 	print("Saving directory: " + savePath)
 
 	print("Savepath: " + savePath)
 
 	if os.path.exists(savePath) == False:
 		os.makedirs(savePath)
+	if os.path.exists(rootRes) == False:
+		os.makedirs(rootRes)
 
 	if os.path.exists(savePath + "\\drawable-hdpi") == False:
 		os.makedirs(savePath + "\\drawable-hdpi")
@@ -224,6 +240,22 @@ def runMain(SRC):
 		os.makedirs(savePath + "\\drawable")
 	if os.path.exists(savePath + "\\layout") == False:
 		os.makedirs(savePath + "\\layout")
+
+	if os.path.exists(rootRes + "\\drawable-hdpi") == False:
+		os.makedirs(rootRes + "\\drawable-hdpi")
+	if os.path.exists(rootRes + "\\drawable-xhdpi") == False:
+		os.makedirs(rootRes + "\\drawable-xhdpi")
+	if os.path.exists(rootRes + "\\drawable-xxhdpi") == False:
+		os.makedirs(rootRes + "\\drawable-xxhdpi")
+	if os.path.exists(rootRes + "\\drawable-xxxhdpi") == False:
+		os.makedirs(rootRes + "\\drawable-xxxhdpi")
+	if os.path.exists(rootRes + "\\drawable-mdpi") == False:
+		os.makedirs(rootRes + "\\drawable-mdpi")
+	if os.path.exists(rootRes + "\\drawable") == False:
+		os.makedirs(rootRes + "\\drawable")
+	if os.path.exists(rootRes + "\\layout") == False:
+		os.makedirs(rootRes + "\\layout")
+
 
 	data = srcfile.readlines()
 	print("Finding drawables...in " + srcFileName)
@@ -246,7 +278,9 @@ def runMain(SRC):
 # a = "E:\\REVE\\AndroidProjects\\New folder\\gradlew\\bla.xml"
 a = input("Please enter the file path: ")
 global currentPath
+global rootRes
 currentPath = os.getcwd()
-
+rootRes = currentPath + '\\ziftaRes\\res'
+zifta = currentPath + '\\ziftaRes'
 if os.path.exists(a) == True:
 	runMain(a)
