@@ -6,7 +6,7 @@ This is a script to copy the dependent resources like drawables, xmls, strings, 
 
 ### Step 1:
 
-Copy the path of the class file or xml file from the Android project
+Copy the path of the class file or xml file from the Android project  
 ![Copy file path][copy_path]
 
 ### Step 2:
