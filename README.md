@@ -25,5 +25,11 @@ You will get all the dependent resources on a folder named `ziftaRes` within tha
 This script may fail if the class files are not written in standard indentations. It may also fail if the android project does not contain any resource file or text which the class or xml file is dependent on.
 
 
+### The End
+
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/
+
 
 [copy_path]: https://github.com/triplemzim/androidresourcecopier/blob/master/images/copy_path.png
