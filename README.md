@@ -4,12 +4,12 @@ This is a script to copy the dependent resources like drawables, xmls, strings, 
 
 ## Steps to copy dependency
 
-### 1
+### Step 1:
 
 Copy the path of the class file or xml file from the Android project
 ![Copy file path][copy_path]
 
-### 2
+### Step 2:
 
 First navigate to the root directory of your Android project. Then copy the script *ResourceCopierAndroid.py* to that root directory. Then open Command Promt or Terminal on that direcotory and Run the application using the following command:
     python ResourceCopierAndroid.py
@@ -17,7 +17,7 @@ You will be given a prompt to paste a file path. Then paste the file path using 
 
 Then wait for the script to complete searching.
 
-### 3
+### Step 3:
 You will get all the dependent resources on a folder named `ziftaRes` within that folder you will get all the resources you need. All the drawables and files will be copied to folders named according to the dependent class or xml files. Also there will be a `res` folder where you will get all the files together. The colors, string and dimen files on the `ziftaRes` folder may contain duplicate referance. You will also get file specific folder for each file dependent on the selected one.
 
 ## Recomendations
@@ -26,4 +26,4 @@ This script may fail if the class files are not written in standard indentations
 
 
 
-[copy_path]: https://github.com/triplemzim/androidresourcecopier/images/copy_path.png
+[copy_path]: https://github.com/triplemzim/androidresourcecopier/blob/master/images/copy_path.png
