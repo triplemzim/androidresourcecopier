@@ -20,7 +20,7 @@ Then wait for the script to complete searching.
 ### Step 3:
 You will get all the dependent resources on a folder named `ziftaRes` within that folder you will get all the resources you need. All the drawables and files will be copied to folders named according to the dependent class or xml files. Also there will be a `res` folder where you will get all the files together. The colors, string and dimen files on the `ziftaRes` folder may contain duplicate referance. You will also get file specific folder for each file dependent on the selected one.
 
-## Recomendations
+## Warning!
 
 This script may fail if the class files are not written in standard indentations. It may also fail if the android project does not contain any resource file or text which the class or xml file is dependent on.
 
