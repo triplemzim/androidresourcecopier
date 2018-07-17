@@ -1,6 +1,6 @@
 # Script to copy Android class or xml dependency
 
-This is a script to copy the dependent resources like drawables, xmls, strings, dimens, colors from a specified class file or xml file of an Android project. This is a python script and you need to install *Python 3 or greater version* to run this script. 
+This is a script to copy the dependent resources like drawables, xmls, strings, dimens, colors from a specified class file or xml file of an Android project. This is a python script and you need to [install][python] *Python 3 or greater version* to run this script. 
 
 ## Steps to copy dependency
 
@@ -33,3 +33,4 @@ http://www.apache.org/licenses/
 
 
 [copy_path]: https://github.com/triplemzim/androidresourcecopier/blob/master/images/copy_path.png
+[python]: https://www.python.org/downloads/release/python-370/
